@@ -182,12 +182,12 @@ func TestAccGroupMembership_CreateAndRemove(t *testing.T) {
 					// this attribute specifies the number of members in the resource state. the
 					// syntax is how terraform maps complex types into a flattened map.
 					resource.TestCheckResourceAttr(tfNode, "members.#", "1"),
-					// testAccVerifyGroupMembershipMatchesState(),
+					testAccVerifyGroupMembershipMatchesState(),
 				),
 			}, {
 				// remove the group membership
 				Config: tfStanzaWithoutMembership,
-				// Check: testAccVerifyGroupMembershipMatchesState(),
+				Check: testAccVerifyGroupMembershipMatchesState(),
 			},
 		},
 	})
